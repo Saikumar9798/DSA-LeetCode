@@ -37,12 +37,6 @@ function findMode(root: TreeNode | null): number[] {
             mode.push(root.val)
         }
 
-        console.log("currentNodeVal --> ", currentNodeVal)
-        console.log("currentNodeCount --> ", currentNodeCount)
-        console.log("maxCount --> ", maxCount)
-        console.log("mode --> ", mode)
-        console.log()
-
         inOrder(root.right);
     }
     inOrder(root)
