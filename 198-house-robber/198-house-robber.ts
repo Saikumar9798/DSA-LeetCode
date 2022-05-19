@@ -1,5 +1,5 @@
 function rob(nums: number[]): number {
-    return getMaxRob(nums, nums.length);
+    return getMaxRob(nums);
 };
 
 function getMaxRob( nums: number[], index = nums.length-1, max = -Infinity, visited: any = {}){
