@@ -2,7 +2,6 @@ type visitedArrayItemType = [number,number,number]
 
 function findShortestSubArray(nums: number[]): number {
     let visited = {};
-    let curr = -Infinity, degree = 0, currCount = 0, currMax = 0;
     nums.forEach((num:number, index:number)=>{
         if(num in visited) {
             visited[num][2] = index;
