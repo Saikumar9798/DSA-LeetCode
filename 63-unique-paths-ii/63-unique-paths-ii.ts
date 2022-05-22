@@ -19,6 +19,5 @@ function uniquePathsWithObstacles(grid: number[][]): number {
              }
          }
      }
-    console.log(grid)
     return grid[grid.length-1][grid[0].length-1]
 };
