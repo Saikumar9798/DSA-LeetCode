@@ -5,12 +5,10 @@ function uniquePathsWithObstacles(grid: number[][]): number {
          for(let j = 0; j < grid[0].length; ++j){
              if(i === 0 && j === 0) continue;
              if(grid[i][j] === 1) grid[i][j] = null;
-             if(i === 0) {
-                 if(grid[i][j] !== null)
+             if(i === 0 && grid[i][j] !== null) {
                     grid[i][j] += grid[i][j-1];
              }
-             else if(j === 0) {
-                 if(grid[i][j] !== null)
+             else if(j === 0 && grid[i][j] !== null) {
                      grid[i][j] += grid[i-1][j];
              }
              else{
