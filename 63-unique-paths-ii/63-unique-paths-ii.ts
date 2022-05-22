@@ -11,8 +11,7 @@ function uniquePathsWithObstacles(grid: number[][]): number {
              else if(j === 0 && grid[i][j] !== null) {
                      grid[i][j] += grid[i-1][j];
              }
-             else{
-                 if(grid[i][j] !== null)
+            else if((i !== 0 && j !== 0) && grid[i][j] !== null){
                     grid[i][j] = grid[i-1][j]+grid[i][j-1];
              }
          }
