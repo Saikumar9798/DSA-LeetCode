@@ -5,7 +5,6 @@ function jump(nums: number[]): number {
         if(i >= numsLen) return 0;
         if(dp[i]) return dp[i];
         let steps = Infinity;
-            // if(!nums[i] && maxDistance <= i) return -Infinity;
             for(let j = i+1; j <= i+nums[i] && j <= numsLen; ++j){
                 maxDistance = Math.max(maxDistance, i+nums[i])
                 steps = Math.min(1+helper(j), steps);
