@@ -12,6 +12,5 @@ function jump(nums: number[]): number {
         dp[i] = steps;
         return steps
     }
-    
-    return helper(0) === -Infinity ? 0 : helper(0);
+    return helper(0);
 };
