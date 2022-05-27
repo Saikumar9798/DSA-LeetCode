@@ -12,9 +12,7 @@ function wordBreak(s: string, words: string[]): boolean {
                 break;
             }
         }
-        console.log()
     }
-    console.log(dp,wordsObject)
     return dp[s.length]
 };
 
