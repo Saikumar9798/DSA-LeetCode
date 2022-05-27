@@ -7,7 +7,7 @@ function wordBreak(s: string, words: string[]): boolean {
     dp[0] = true;
     for(let i =1; i <= newS.length; ++i){
         for(let j = i-1; j > -1; --j){
-            if(dp[j] && (newS.slice(j+1, i+1) in wordsObject)){
+            if(dp[j] && (words.includes(newS.slice(j+1, i+1)))){
                 dp[i] = true;
                 break;
             }
