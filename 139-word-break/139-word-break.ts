@@ -1,9 +1,6 @@
 function wordBreak(s: string, words: string[]): boolean {
     let dp = Array(s.length+1).fill(false);
     const newS = " "+s;
-    let wordsObject = {};
-    for(let i = 0 ; i < words.length; ++i)
-        wordsObject[`${words[i]}`] = words[i];
     dp[0] = true;
     for(let i =1; i <= newS.length; ++i){
         for(let j = i-1; j > -1; --j){
