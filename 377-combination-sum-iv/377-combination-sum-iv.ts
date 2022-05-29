@@ -8,21 +8,3 @@ function combinationSum4(nums: number[], target: number): number {
     }
     return dp[target];
 };
-
-// function combinationSum4(nums: number[], target: number): number {
-//     let count = 0;
-//     function helper(target: number): void{
-//         if(!target) {
-//             count++;
-//             return;
-//         }
-//         if(target < 0) return;
-//         for(let num of nums){
-//             if((target-num) >= 0) {
-//                 helper(target-num)
-//             }
-//         }
-//     }
-//     helper(target);
-//     return count;
-// };
