@@ -4,7 +4,7 @@ function letterCasePermutation(s: string): string[] {
     const out = helper(i + 1);
     const result: string[] = [];
     out.forEach((item) => {
-      if (s[i].toLocaleLowerCase().charCodeAt(0) >= 97 && s[i].toLocaleLowerCase().charCodeAt(0) <= 122) {
+      if (s[i].toLocaleLowerCase() !== s[i].toLocaleUpperCase()) {
         result.push(s[i].toLocaleLowerCase() + item);
         result.push(s[i].toLocaleUpperCase() + item);
       } else {
