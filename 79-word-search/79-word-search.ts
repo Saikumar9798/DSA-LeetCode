@@ -15,7 +15,6 @@ function exist(board: string[][], word: string): boolean {
   function helper(m: number, n: number, i: number, search: string): boolean {
     if (search === word) return true;
     if (!isValidCell(m, n, i)) {
-      search = search.slice(0, search.length - 1);
       return false;
     }
     const c = board[m][n];
