@@ -1,4 +1,5 @@
 function letterCombinations(digits: string): string[] {
+  if(!digits) return [];
   const mappings: { [key: string]: string[] } = {
     2: ["a", "b", "c"],
     3: ["d", "e", "f"],
@@ -20,6 +21,5 @@ function letterCombinations(digits: string): string[] {
     }
     return result;
   }
-  if(!digits) return [];
   return helper(0);
 }
