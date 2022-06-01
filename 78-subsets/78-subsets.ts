@@ -1,15 +1,16 @@
 function subsets(nums: number[]): number[][] {
-    let result = [[]], stack = [];
-    function helper(i: number){
-        if(i === nums.length) return;
-        while(i < nums.length){
-            stack.push(nums[i]);
-            result.push([...stack]);
-            helper(i+1);
-            stack.pop();
-            ++i;
-        }
+  let result: number[][] = [],
+    stack: number[] = [];
+  function helper(i: number) {
+    if (i === nums.length) {
+      result.push([...stack]);
+      return;
     }
-    helper(0);
-    return result;
-};
+    stack.push(nums[i]);
+    helper(i + 1);
+    stack.pop();
+    helper(i + 1);
+  }
+  helper(0);
+  return result;
+}
