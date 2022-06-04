@@ -9,37 +9,27 @@ function isValidSudoku(board: string[][]): boolean {
     return boxElements.length === [...new Set(boxElements)].length;
   }
 
-  function elementRowChecker(num: number, row: number, col: number) {
-    for (let j = 0; j < board[0].length; ++j) {
-      if (j === col) continue;
-      if (+board[row][j] === num) return false;
-    }
-    return true;
-  }
-
-  function elementColChecker(num: number, row: number, col: number) {
-    for (let j = 0; j < board.length; ++j) {
-      if (j === row) continue;
-      if (+board[j][col] === num) return false;
-    }
-    return true;
-  }
-
-  for (let i = 0; i < board.length; ++i) {
-    for (let j = 0; j < board[0].length; ++j) {
-      if (
-        !(
-          elementRowChecker(+board[i][j], i, j) &&
-          elementColChecker(+board[i][j], i, j)
-        )
-      )
-        return false;
-    }
-  }
-
   for (let i = 0; i < board[0].length - 2; i += 3) {
     for (let j = 0; j < board.length - 2; j += 3) {
       if (!boxValidity(i, j)) return false;
+    }
+  }
+
+  for (let i = 0; i < board.length; ++i) {
+    const visited: { [key: string]: 1 } = {};
+    for (let j = 0; j < board[0].length; ++j) {
+      if (board[i][j] in visited) return false;
+      else if (board[i][j] !== ".") visited[board[i][j]] = 1;
+      else continue;
+    }
+  }
+
+  for (let i = 0; i < board[0].length; ++i) {
+    const visited: { [key: string]: 1 } = {};
+    for (let j = 0; j < board.length; ++j) {
+      if (board[j][i] in visited) return false;
+      else if (board[j][i] !== ".") visited[board[j][i]] = 1;
+      else continue;
     }
   }
 
