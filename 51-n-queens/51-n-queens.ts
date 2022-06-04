@@ -24,6 +24,7 @@ function solveNQueens(n: number): string[][] {
     }
     return true;
   }
+    
   function helper(r: number, queensCount: number = 0): void {
     if (queensCount === n) {
       const nQueensPossibleSolution = [];
@@ -43,6 +44,7 @@ function solveNQueens(n: number): string[][] {
       }
     }
   }
+
   helper(0);
   return result;
 }
