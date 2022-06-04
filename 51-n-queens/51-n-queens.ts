@@ -1,7 +1,6 @@
 function solveNQueens(n: number): string[][] {
   const result: string[][] = [];
-  const resetMatrix = new Array(n).fill(0).map((_) => new Array(n).fill("."));
-  let queensMatrix = JSON.parse(JSON.stringify(resetMatrix));
+  let queensMatrix = new Array(n).fill(0).map((_) => new Array(n).fill("."));
 
   function inRange(x: number, min: number, max: number) {
     return (x - min) * (x - max) <= 0;
