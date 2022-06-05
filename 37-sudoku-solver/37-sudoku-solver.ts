@@ -90,6 +90,7 @@ function solveSudoku(board: string[][]): void {
             delete rowElements[r][i];
             delete colElements[c][i];
           }
+          else return;
         }
       }
     } else helper(r, c + 1);
