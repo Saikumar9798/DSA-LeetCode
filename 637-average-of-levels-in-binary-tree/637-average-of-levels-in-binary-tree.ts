@@ -16,20 +16,17 @@ function averageOfLevels(root: TreeNode | null): number[] {
     const avgArray: number[] = [];
     let queue = [];
     queue.push(root);
-    let j = 0, sum = 0;
+    let j = 0, sum = 0, qLen = 0;
     while(queue.length){
-        sum = 0
-        for(let i = 0; i < queue.length; ++i){
-            sum += queue[i].val
+        sum = 0, qLen = queue.length;
+        for(let i = 0; i < qLen; ++i){
+            const node = queue.shift();
+            sum += node.val;
+            if(node.left) queue.push(node.left)
+            if(node.right) queue.push(node.right)
         }
-        avgArray[j] = sum / queue.length;
+        avgArray[j] = sum / qLen;
         ++j;
-        const stack = [];
-        for(let i = 0; i < queue.length; ++i){
-            if(queue[i].left) stack.push(queue[i].left)
-            if(queue[i].right) stack.push(queue[i].right)
-        }
-        queue = JSON.parse(JSON.stringify(stack))
     }
     return avgArray
 };
