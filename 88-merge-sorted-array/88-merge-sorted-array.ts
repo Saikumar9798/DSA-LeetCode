@@ -10,5 +10,4 @@ function merge(nums1: number[], m: number, nums2: number[], n: number): void {
       nums1.push(...sorted);
     }
   }
-  // console.log(nums1);
 }
