@@ -3,7 +3,7 @@ function maxProfit(prices: number[]): number {
   function helper(index: number, buy: boolean, capacity: number) {
     if (index === prices.length || !capacity) return 0;
     const key = `${index}-${buy}-${capacity}`;
-    if(key in dp) return dp[key]
+    if (key in dp) return dp[key];
     if (buy)
       dp[key] = Math.max(
         -prices[index] + helper(index + 1, false, capacity),
@@ -14,7 +14,7 @@ function maxProfit(prices: number[]): number {
         prices[index] + helper(index + 1, true, capacity - 1),
         helper(index + 1, false, capacity)
       );
-      return dp[key];
+    return dp[key];
   }
   return helper(0, true, 2);
 }
