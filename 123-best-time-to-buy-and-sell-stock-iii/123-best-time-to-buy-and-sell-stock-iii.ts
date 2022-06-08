@@ -1,6 +1,6 @@
 function maxProfit(prices: number[]): number {
   const dp: { [key: string]: number } = {};
-  function helper(index: number, buy: boolean, capacity: number) {
+  function helper(index: number, buy: boolean, capacity: number): number {
     if (index === prices.length || !capacity) return 0;
     const key = `${index}-${buy}-${capacity}`;
     if (key in dp) return dp[key];
