@@ -8,9 +8,8 @@ function minOperations(nums: number[], x: number): number {
     r = 0;
   while (r < nums.length) {
     currSum += nums[r];
-    if (currSum > target) 
-      while (currSum > target) 
-        currSum -= nums[l++];
+    while (currSum > target) 
+      currSum -= nums[l++];
     if (currSum === target) 
       result = Math.max(result, r - l + 1);
     r++;
