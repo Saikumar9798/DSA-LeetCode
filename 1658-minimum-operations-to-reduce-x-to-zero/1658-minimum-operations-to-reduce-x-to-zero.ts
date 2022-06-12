@@ -1,18 +1,38 @@
 function minOperations(nums: number[], x: number): number {
   const sum = nums.reduce((acc, curr) => acc + curr);
   if (sum === x) return nums.length;
-  const visited: { [key: string]: number } = { 0: -1 };
   const target = sum - x;
   let result = -1,
-    currSum = 0;
-  nums.forEach((num, index) => {
-    currSum += num;
-    visited[currSum] = index;
-    if (currSum - target in visited)
-      result = Math.max(result, index - visited[currSum - target]);
-  });
+    currSum = 0,
+    l = 0,
+    r = 0;
+  while (r < nums.length) {
+    currSum += nums[r];
+    if (currSum > target) 
+      while (currSum > target) 
+        currSum -= nums[l++];
+    if (currSum === target) 
+      result = Math.max(result, r - l + 1);
+    r++;
+  }
   return result === -1 ? -1 : nums.length - result;
 }
+
+// function minOperations(nums: number[], x: number): number {
+//   const sum = nums.reduce((acc, curr) => acc + curr);
+//   if (sum === x) return nums.length;
+//   const visited: { [key: string]: number } = { 0: -1 };
+//   const target = sum - x;
+//   let result = -1,
+//     currSum = 0;
+//   nums.forEach((num, index) => {
+//     currSum += num;
+//     visited[currSum] = index;
+//     if (currSum - target in visited)
+//       result = Math.max(result, index - visited[currSum - target]);
+//   });
+//   return result === -1 ? -1 : nums.length - result;
+// }
 
 // function minOperations(nums: number[], x: number): number {
 //   function helper(l: number, r: number, sum: number): number {
