@@ -14,7 +14,6 @@
 
 function sumNumbers(root: TreeNode | null): number {
     const stack = [];
-    // const finalArray = [];
     let totalSum = 0;
     function helper(root: TreeNode | null){
         if(!root?.left && !root?.right) {
