@@ -16,16 +16,13 @@ function sumNumbers(root: TreeNode | null): number {
     const stack = [];
     let totalSum = 0;
     function helper(root: TreeNode | null){
-        if(!root?.left && !root?.right) {
-            stack.push(root?.val)
-            const formedNumber = stack.join("")
-            totalSum += +formedNumber
-            stack.pop();
-            return;
-        }
         stack.push(root.val)
         if(root?.left) helper(root.left);
         if(root?.right) helper(root.right);
+        if(!root.left && ! root.right) {
+            const formedNumber = stack.join("")
+            totalSum += +formedNumber
+        }   
         stack.pop();
     }
     helper(root)
