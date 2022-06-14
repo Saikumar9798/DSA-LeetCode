@@ -14,12 +14,13 @@
 
 function sumNumbers(root: TreeNode | null): number {
     const stack = [];
-    const finalArray = [];
+    // const finalArray = [];
     let totalSum = 0;
     function helper(root: TreeNode | null){
         if(!root?.left && !root?.right) {
             stack.push(root?.val)
-            finalArray.push(stack.join(""))
+            const formedNumber = stack.join("")
+            totalSum += +formedNumber
             stack.pop();
             return;
         }
@@ -29,6 +30,5 @@ function sumNumbers(root: TreeNode | null): number {
         stack.pop();
     }
     helper(root)
-    const sum = finalArray.reduce((acc,curr)=>acc+(+curr),0)
-    return sum
+    return totalSum
 };
