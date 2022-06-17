@@ -16,7 +16,9 @@ function isBalanced(root: TreeNode | null): boolean {
     function helper(root: TreeNode | null){
         if(!root) return 0;
         const left = helper(root.left);
+        if(left === Infinity) return Infinity;
         const right = helper(root.right);
+        if(right === Infinity) return Infinity;
         const heightDifference = Math.abs(left-right);
         if(heightDifference > 1) return Infinity;
         return 1+Math.max(left,right)
